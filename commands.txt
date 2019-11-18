@@ -1,0 +1,131 @@
+#anaconda environments for python developments
+#shell command to open anaconda navigator type ====>>>
+anaconda-navigator
+#with the conda environment you can create new environment for python development use either in pycharm or spyder
+
+
+
+#Git command summary look for what you want
+ 756  git init
+  757  ls -la
+  758  l
+  759  git status
+  760  touch mypass.txt
+  761  g mypass.txt 
+  762  touch .gitignore
+  763  l
+  764  g .gitignore
+  765  git status
+  766  git add collatz.py
+  767  git status
+  768  git add -A
+  769  git status
+  770  git reset collatz.py
+  771  git status
+  772  git reset 
+  773  git status
+  774  git add -A
+  775  git status
+  776  git commit -m "initial commit"
+  777  git status
+  778  git log
+  779  git remote -v
+  780  git branch -v
+  781  g collatz.py 
+  782  git status
+  783  git diff
+  784  git status
+  785  git add -A
+  786  git status
+  787  g collatz.py 
+  788  git diff
+  789  git add -A
+  790  git status
+  791  git commit -m "Added thank you note"
+  792  git log
+  793  git remote add origin https://github.com/anuhdi95/python
+  794  git push -f origin master
+  795  git pull origin master
+  796  git diff
+  797  ls
+  798  touch hello_world.py
+  799  g hello_world.py 
+  800  python hello_world.py 
+  801  git push remote master
+  802  git push origin master
+  803  git add hello_world.py
+  804  git status 
+  805  git reset hello_world.py
+  806  git status 
+  807  git add hello_world.py
+  808  git commit -m "Made hello world programm"
+  809  git status 
+  810  git push origin master
+  811  get branch -a
+  812  git branch -a
+  813  git checkout remotes/origin/master
+  814  ls
+  815  git config color.ui true
+  816  git status
+  817  python
+  818  touch bday_dict.py
+  819  g bday_dict.py 
+  820  python bday_dict.py 
+  821  git add bday_dict.py
+  822  git diff
+  823  git reset
+  824  git diff
+  825  git add bday_dict.py
+  826  git commit -m "Added birthdate project"
+  827  git log
+  828  git branch -all
+  829  git branch --all
+  830  git push origin master
+  831  git log
+  832  ls
+  833  git pull origin master
+  834  ls
+  835  git push origin master
+  836  ls
+  837  git add -A
+  838  git status
+  839  git branches
+  840  git branch
+  841  git checkout master 
+  842  git branch
+  843  git add -A
+  844  git log
+  845  git status
+  846  ls
+  847  nautilus
+  848  git branch new_branch_name 58c447b
+  849  git ba=ranch
+  850  git branch
+  851  git checkout new_branch_name 
+  852  ls
+  853  git log
+  854  git merge new_branch_name master 
+  855  git branch
+  856  git --merged
+  857  git branch --merged
+  858  git checkout master 
+  859  ls
+  860  git log
+  861  git merge new_branch_name 
+  862  ls
+  863  git branch
+  864  git diff
+  865  git status
+  866  git pull origin master
+  867  git log
+  868  git status
+  869  git branch
+  870  git push origin master
+  871  git branch --merged
+  872  git branch -a
+  873  git push -u origin new_branch_name 
+  874  git branch -a
+  875  git branch -d new_branch_name 
+  876  git branch -a
+  877  git push origin --delete new_branch_name
+  878  git branch -a
