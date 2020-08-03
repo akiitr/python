@@ -4,6 +4,10 @@
 import 	mod
 from mypackage.mod1 import *
 from mypackage.mod2 import *
+#for using mod1.f1() we use import mypackage directly
+import mypackage
+import mypackage as p
+
 print ("Now in the main of app.py with the value of __name__ as: " + __name__)
 mod.f1()
 mod.f3()
