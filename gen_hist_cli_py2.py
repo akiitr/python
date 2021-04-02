@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from numpy import histogram,percentile
+from numpy import histogram,percentile,array
 import argparse
 from math import floor
 
@@ -89,6 +89,10 @@ def main():
  
     # Calculate stats on data
     print '\ncount      :',len(input_list)
+    print 'Mean	:',array(input_list).mean()
+    print 'Var	:',array(input_list).var()
+    print 'Std_dev	:',array(input_list).std()
+
     for perc in [25,50,75]:
         print "{0}th perc. :".format(perc), percentile(input_list,perc)
     
