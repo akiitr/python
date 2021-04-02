@@ -16,7 +16,7 @@ def draw_hist(normed_hist_list,shape,args):
     y_offset = '       '
     y_label  = ' prop. '
 
-    print ""
+    print ("")
     # Build plot from top level
     for depth in range(args.height-1,-1,-1):
 
@@ -41,11 +41,11 @@ def draw_hist(normed_hist_list,shape,args):
                 continue
             else:
                 sys.stdout.write(' ')
-        print ""
+        print ("")
 
     # Draw X axis 
-    print y_offset + '└'+ "─"*(args.bins+2)
-    print y_offset + str(shape[0]) + ' '*(args.bins-3) + str(shape[1])
+    print (y_offset + '└'+ "─"*(args.bins+2))
+    print (y_offset + str(shape[0]) + ' '*(args.bins-3) + str(shape[1]))
 
 
 def parse_args():
@@ -66,17 +66,18 @@ def main():
     
     # Convert input to floats
     try:
-        input_list = map(float,input_list)
+	# map returns an iterable in pyhton3 to be converted to list to work other than print statement
+        input_list = list(map(float,input_list))
     except:
-	#raise SystemError("Failed to convert input to float")
-	
-	# AK: a way to remove the text from column but slow
-	for i in input_list:
-		try:
-			temp.append(float(i))
-		except:
-			continue
-	input_list = temp
+      #raise SystemError("Failed to convert input to float")
+    
+      # AK: a way to remove the text from column but slow
+      for i in input_list:
+        try:
+          temp.append(float(i))
+        except:
+          continue
+      input_list = temp
 	# AK: Done
 
     hist_list,bin_edges = histogram(input_list,bins=args.bins)
@@ -88,11 +89,10 @@ def main():
     draw_hist(normed_hist_list,shape,args)
  
     # Calculate stats on data
-    print '\ncount      :',len(input_list)
+    print ('\ncount      :',len(input_list))
     for perc in [25,50,75]:
-        print "{0}th perc. :".format(perc), percentile(input_list,perc)
+        print ("{0}th perc. :".format(perc), percentile(input_list,perc))
     
 
 if __name__ == '__main__':
     main()
-

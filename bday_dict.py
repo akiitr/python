@@ -13,5 +13,4 @@ while True:
 		day = input()
 		bday[name] = day
 		print ('database updated!!')
-
-
+		
