@@ -52,6 +52,9 @@ def parse_args():
     parser = argparse.ArgumentParser(description='draw a histogram from stdin', add_help=False)
     parser.add_argument('-b', '--bins', type=int, help='the number of bins (default=60)', default=60)
     parser.add_argument('-h', '--height', type=int, help='the height of the plot (default=10)', default=10)
+    parser.add_argument('-w', '--width', type=int, help='the width of the bins (default=0)', default=0)
+    parser.add_argument('-rmin', '--range_min', type=int, help='the min range of the series (default=0)', default=0)
+    parser.add_argument('-rmax', '--range_max', type=int, help='the max range of the series (default=0)', default=0)
     parser.add_argument('-?', '--help', action='help', help='show this help and exit')
     return parser.parse_args(sys.argv[1:])
 
@@ -80,14 +83,40 @@ def main():
       input_list = temp
 	# AK: Done
 
-    hist_list,bin_edges = histogram(input_list,bins=args.bins)
+# AK: clipping the list based on given range
+    if (args.range_max == 0):
+	    input_max = max(input_list)
+    else:
+	    input_max = args.range_max
+
+    if (args.range_min == 0):
+	    input_min = min(input_list)
+    else:
+	    input_min = args.range_min
+
+# AK: list comprehensiong for clipping the list
+    input_list = [i for i in input_list if (i <= input_max) and (i >= input_min)]
+
+    if (args.width > 0):
+	    hist_list,bin_edges = histogram(input_list,bins=range(int(min(input_list)), int(max(input_list)) + args.width, args.width))
+    else:
+	    hist_list,bin_edges = histogram(input_list,bins=args.bins)
+
     max_count = max(hist_list)
     shape = ( min(input_list), max(input_list) )
     normed_hist_list = [ float(x)*args.height/max_count for x in hist_list ]
     
     # Draw the histogram
     draw_hist(normed_hist_list,shape,args)
- 
+    # Printing histogram
+    #print ("Vlaue from: {0} to: {1}\n".format(min(input_list),max(input_list)))
+    print ("Bins		Count		ASCII_plot\n")
+    for (x,n) in zip(range(len(bin_edges)),hist_list):
+	    bar = '#'*int(n*50.0/max_count)
+	    x1 = '{0: <7.5g}'.format(bin_edges[x]).ljust(5)
+	    x2 = '{0: <7.5g}'.format(bin_edges[x+1]).ljust(5)
+	    count = 'count: {0: <7.10g}'.format(int(n)).ljust(5)
+	    print ("{0} - {1} {2}| {3}".format(x1,x2,count,bar))
     # Calculate stats on data
     print ('\nSamples	:',len(input_list))
     print ('Mean	:',array(input_list).mean())
