@@ -1,2 +1,3 @@
 mypass.txt
 *.swp
+env*/*
