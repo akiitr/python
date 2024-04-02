@@ -2,3 +2,4 @@ mypass.txt
 *.swp
 env*/*
 *.png
+*.jpg
